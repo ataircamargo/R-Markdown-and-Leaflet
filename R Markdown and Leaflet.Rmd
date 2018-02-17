@@ -1,0 +1,21 @@
+---
+title: "R Markdown and Leaflet"
+author: "Atair Camargo"
+date: "February, 16th, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library("leaflet")
+geo <- read.csv("C:/Temp/Coursera/R.Markdown.and.Leaflet/geo.csv", sep = ",")
+
+geo %>%
+        leaflet() %>%
+        addTiles() %>%
+        addMarkers(lng=geo$lng, lat=geo$lat, popup=geo$Popup)
+geo
+```
